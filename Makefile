@@ -44,6 +44,13 @@ install: all
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 
+localinstall: all
+	mkdir -p ${HOME}/.bin
+	cp -f dwm ${HOME}/.bin
+	chmod 755 ${HOME}/.bin/dwm
+	cp -f dwm.png ${HOME}/.bin/dwm.png
+	chmod 755 ${HOME}/.bin/dwm.png
+
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
